@@ -1,10 +1,16 @@
 let tarefas = []
 
-function addTask() {
+document.getElementById("btnLogin").addEventListener("click", handleLogin);
+
+function addTask(formEvent) {
+
     let buttonTask = document.getElementById("addTask");
     let textInputTask = document.getElementById("textAddTask");
-
     let textAddTask = textInputTask.value
+
+    if (formEvent){
+        formEvent.preventDefault();
+    }
 
     if (textAddTask == "") {
         alert("Por favor digitar um tarefa!")
@@ -18,11 +24,17 @@ function addTask() {
     };
 
     tarefas.push(newTask);
-
     textInputTask.value = ""
-
     renderTask();
     console.log(tarefas)
+
+    const today = new Date();
+    const year = today.getFullYear();
+    const mouth = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+
+    const formattedDate = `${year}-${mouth}-${day}`;
+    createEventGoogle(textAddTask, formattedDate);
 }
 
 function renderTask() {

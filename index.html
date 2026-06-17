@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./style.css" >
-    
+    <script src="https://accounts.google.com/gsi/client" onload="gisiInit()" async defer></script>
 </head>
 <body>
     <header id="cabecario">
@@ -17,12 +17,19 @@
 
     <div>
         <input type="text" id="textAddTask">
-        <button id="buttonTask" onclick="addTask()">Confirmar</button>
+        <button id="buttonTask" onclick="addTask(event)">Confirmar</button>
         <ul id="listaTarefas">
+    </div>
+
+    <div>
+        <button id="btnLogin">
+            Conectar pelo Google 📅
+        </button>
     </div>
     
     <script src="auth.js"></script>
     <script src="googleApi.js"></script>
+    <script src="calendar.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
