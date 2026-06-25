@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="./style.css" >
-    <script src="https://accounts.google.com/gsi/client" onload="gisiInit()" async defer></script>
+    <link href="./style.css">
+
 </head>
+
 <body>
     <header id="cabecario">
         <h1>
@@ -22,14 +24,28 @@
     </div>
 
     <div>
-        <button id="btnLogin">
+        <button id="btnLogin" onclick="handleLogin()">
             Conectar pelo Google 📅
         </button>
     </div>
-    
-    <script src="auth.js"></script>
-    <script src="googleApi.js"></script>
+
+    <div id="google-events-container" style="margin-top: 20px;">
+        <h2>📅 Próximos Compromissos (Google Agenda)</h2>
+        <ul id="listGoogle">
+            <li>Faça login para carregar os compromissos da agenda...</li>
+        </ul>
+    </div>
+    <script src="https://accounts.google.com/gsi/client"></script>
     <script src="calendar.js"></script>
+    <script src="auth.js"></script>
     <script src="main.js"></script>
+    <script>
+        window.onload = function () {
+            if (typeof gisiInit === 'function') {
+                gisiInit();
+            }
+        };
+    </script>
 </body>
+
 </html>

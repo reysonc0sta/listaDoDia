@@ -13,8 +13,8 @@ function gisiInit() {
             if (tokenResponse && tokenResponse.access_token) {
                 accessToken = tokenResponse.access_token;
                 console.log("Sucesso!", accessToken);
-                alert('Conectado ao Google com sucesso!');
                 document.getElementById("btnLogin").style.display = "none";
+                eventListGoogle()
             }
         },
 
