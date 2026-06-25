@@ -56,7 +56,6 @@ async function eventListGoogle() {
     const timeMax = encodeURIComponent(endDay.toISOString());
 
     const URL = `https://www.googleapis.com/calendar/v3/calendars/primary/events?timeMin=${timeMin}&timeMax=${timeMax}&singleEvents=true&orderBy=startTime&maxResults=10`
-    console.log('A url que o js gera é :', URL)
 
     try {
         const response = await fetch(

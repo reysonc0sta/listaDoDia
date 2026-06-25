@@ -29,11 +29,7 @@ function addTask(formEvent) {
     console.log(tarefas)
 
     const today = new Date();
-    const year = today.getFullYear();
-    const mouth = String(today.getMonth() + 1).padStart(2, '0');
-    const day = String(today.getDate()).padStart(2, '0');
-
-    const formattedDate = `${year}-${mouth}-${day}`;
+    const formattedDate = today.toISOString().split('T')[0];
     createEventGoogle(textAddTask, formattedDate);
 }
 
